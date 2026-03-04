@@ -1,0 +1,83 @@
+{
+  "meta": {
+    "title": "城崎温泉・天橋立 しおり",
+    "dates": "2026-03-07/2026-03-08",
+    "members": "6人（兄弟4・父・祖母）",
+    "transport": "車（高速）",
+    "checked_at": "2026-03-05"
+  },
+  "hard_constraints": [
+    "3/8 15:10 天橋立エリア出発（遅くとも15:20）",
+    "3/8 20:00 松井山手で祖母送迎",
+    "観光船・バスは使わない（車移動のみ）"
+  ],
+  "decision_rules": {
+    "drop_order": [
+      "ビューランド",
+      "散策距離（20分折返し→15分折返し）",
+      "昼食（軽食化）"
+    ],
+    "parking_timebox_minutes": 10,
+    "walk_turnback": {
+      "default_outbound_minutes": 20,
+      "shorten_if_tired_minutes": 15
+    },
+    "alcohol_rule": "1日目は外湯後に宿まで運転があるため温泉街で飲まない。飲酒は宿チェックイン後。"
+  },
+  "days": [
+    {
+      "id": "day1",
+      "date": "2026-03-07",
+      "summary": "東大阪→玄武洞→城崎（昼・外湯・散策）→宿",
+      "events": [
+        { "time": "08:00", "cat": "move", "title": "東大阪 自宅 発", "memo": "運転交代は90分目安" },
+        { "time": "08:20", "cat": "other", "title": "鴻池新田で祖母ピック", "memo": "合流後すぐ高速へ" },
+        { "time": "09:40", "cat": "break", "title": "SA/PA休憩", "memo": "15〜20分" },
+        { "time": "11:20", "cat": "move", "title": "城崎着→玄武洞へ直行", "memo": "温泉街駐車は後回し" },
+        { "time": "11:35-12:25", "cat": "sight", "title": "玄武洞見学", "memo": "滞在50分想定" },
+        { "time": "12:55-13:55", "cat": "food", "title": "昼（をり鶴 or ますや）", "memo": "混雑短い方へ即決" },
+        { "time": "14:05-16:55", "cat": "spa", "title": "外湯2〜3湯 + 散策", "memo": "疲れたら2湯で終了" },
+        { "time": "17:20-17:40", "cat": "stay", "title": "レイセニット チェックイン", "memo": "以降飲酒可" }
+      ]
+    },
+    {
+      "id": "day2",
+      "date": "2026-03-08",
+      "summary": "北（傘松）→南側散策→余裕でビューランド→15:10出発",
+      "events": [
+        { "time": "09:00", "cat": "move", "title": "宿 発（北側へ直行）", "memo": "朝食は時短運用" },
+        { "time": "10:30", "cat": "other", "title": "傘松ふもと着・駐車", "memo": "10分で見切り" },
+        { "time": "10:45-12:05", "cat": "sight", "title": "傘松公園", "memo": "上限80分" },
+        { "time": "12:05-12:35", "cat": "move", "title": "北→南へ移動", "memo": "順序固定" },
+        { "time": "12:35-13:20", "cat": "food", "title": "昼（当日探索）", "memo": "回転優先" },
+        { "time": "13:25-14:15", "cat": "walk", "title": "南半分散策", "memo": "往路20分で折返し固定" },
+        { "time": "14:20-14:50", "cat": "sight", "title": "ビューランド（余裕枠）", "memo": "押したらカット" },
+        { "time": "15:10", "cat": "move", "title": "天橋立エリア出発（固定）", "memo": "遅くとも15:20" },
+        { "time": "20:00", "cat": "other", "title": "松井山手で祖母送迎", "memo": "固定時刻" }
+      ]
+    }
+  ],
+  "parking_candidates": {
+    "north_fuchu": [
+      { "name": "よし乃や駐車場", "capacity": 12, "fee_jpy": 800 },
+      { "name": "駐車場2", "capacity": 18, "fee_jpy": 800 },
+      { "name": "松井物産駐車場", "capacity": 150, "fee_jpy": 800 }
+    ],
+    "south_monju": [
+      { "name": "智恩寺駐車場", "capacity": 100, "fee_jpy": 700 },
+      { "name": "天橋立駐車場", "capacity": 224, "fee_jpy": 1000 }
+    ]
+  },
+  "sources": [
+    { "name": "玄武洞公園 公式", "url": "https://genbudo-park.jp/", "checked_at": "2026-03-05" },
+    { "name": "玄武洞ミュージアム アクセス", "url": "https://genbudo-museum.jp/user_data/access.php", "checked_at": "2026-03-05" },
+    { "name": "城崎温泉観光協会 外湯案内", "url": "https://kinosaki-spa.gr.jp/onsen/kinosaki-externals/", "checked_at": "2026-03-05" },
+    { "name": "城崎温泉観光案内 外湯ページ", "url": "https://kinosaki-onsen.info/spa", "checked_at": "2026-03-05" },
+    { "name": "レイセニット城崎 公式", "url": "https://www.reyzenit-kinosaki.jp/", "checked_at": "2026-03-05" },
+    { "name": "レイセニット城崎 アクセス", "url": "https://www.resorthotels109.jp/reyzenit/kinosaki/access/", "checked_at": "2026-03-05" },
+    { "name": "天橋立ケーブル・リフト 公式", "url": "https://www.amano-hashidate.com/cablecar/", "checked_at": "2026-03-05" },
+    { "name": "天橋立ビューランド 営業案内", "url": "https://www.viewland.jp/eigyou/", "checked_at": "2026-03-05" },
+    { "name": "天橋立ビューランド リフト案内", "url": "https://www.viewland.jp/lift/", "checked_at": "2026-03-05" },
+    { "name": "天橋立 観光協会 駐車場情報", "url": "https://www.amanohashidate.jp/parking/", "checked_at": "2026-03-05" }
+  ]
+}

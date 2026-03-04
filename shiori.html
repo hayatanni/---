@@ -1,0 +1,1061 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="color-scheme" content="light dark" />
+  <title>城崎温泉・天橋立 しおり（2026/3/7-3/8）</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@600;700;800&family=Zen+Kaku+Gothic+New:wght@400;500;700;900&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #f4f2eb;
+      --bg2: #e1e8ef;
+      --surface: rgba(255, 255, 255, 0.8);
+      --surface-strong: #ffffff;
+      --text: #102033;
+      --muted: #4f6078;
+      --line: rgba(16, 32, 51, 0.14);
+      --line-strong: rgba(16, 32, 51, 0.26);
+      --accent: #0b5f8f;
+      --accent-soft: rgba(11, 95, 143, 0.15);
+      --warn: #b45309;
+      --danger: #b91c1c;
+      --topbar-bg: rgba(244, 242, 235, 0.9);
+      --shadow: 0 12px 26px rgba(16, 32, 51, 0.12);
+      --shadow-soft: 0 6px 18px rgba(16, 32, 51, 0.08);
+      --focus: rgba(11, 95, 143, 0.28);
+      color-scheme: light;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #0c1726;
+        --bg2: #112234;
+        --surface: rgba(15, 30, 47, 0.86);
+        --surface-strong: #0f2338;
+        --text: #eff6ff;
+        --muted: #a8bfd8;
+        --line: rgba(217, 230, 245, 0.2);
+        --line-strong: rgba(217, 230, 245, 0.35);
+        --accent: #58b6ea;
+        --accent-soft: rgba(88, 182, 234, 0.2);
+        --warn: #fdba74;
+        --danger: #f87171;
+        --topbar-bg: rgba(10, 20, 33, 0.84);
+        --shadow: 0 14px 34px rgba(0, 0, 0, 0.45);
+        --shadow-soft: 0 6px 18px rgba(0, 0, 0, 0.35);
+        --focus: rgba(88, 182, 234, 0.35);
+        color-scheme: dark;
+      }
+    }
+
+    html[data-theme="light"] { color-scheme: light; }
+    html[data-theme="dark"] { color-scheme: dark; }
+
+    * { box-sizing: border-box; }
+    html, body { margin: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background:
+        radial-gradient(1200px 500px at 100% -20%, rgba(11, 95, 143, 0.14), transparent 60%),
+        radial-gradient(900px 400px at -5% 0%, rgba(180, 83, 9, 0.12), transparent 60%),
+        linear-gradient(160deg, var(--bg), var(--bg2));
+      color: var(--text);
+      font-family: "Zen Kaku Gothic New", "Hiragino Sans", "Yu Gothic", "Meiryo", sans-serif;
+      line-height: 1.58;
+      -webkit-font-smoothing: antialiased;
+      text-wrap: pretty;
+    }
+
+    a { color: inherit; }
+    :focus-visible {
+      outline: 3px solid var(--focus);
+      outline-offset: 2px;
+      border-radius: 12px;
+    }
+
+    #top, #overview, #day1, #day2, #facts, #links, #rules, #todo {
+      scroll-margin-top: 120px;
+    }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 90;
+      backdrop-filter: saturate(130%) blur(12px);
+      background: var(--topbar-bg);
+      border-bottom: 1px solid var(--line);
+    }
+    .barInner {
+      max-width: 1040px;
+      margin: 0 auto;
+      padding: 10px 14px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .seal {
+      width: 38px;
+      height: 38px;
+      border-radius: 14px;
+      flex: 0 0 auto;
+      background:
+        radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.75), transparent 38%),
+        linear-gradient(140deg, var(--accent), var(--warn));
+      border: 1px solid rgba(255, 255, 255, 0.4);
+      box-shadow: var(--shadow-soft);
+    }
+    .brand { min-width: 0; }
+    .brand h1 {
+      margin: 0;
+      font-family: "Shippori Mincho B1", "Yu Mincho", serif;
+      font-size: 16px;
+      line-height: 1.15;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .brand p {
+      margin: 4px 0 0;
+      font-size: 12px;
+      color: var(--muted);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .actions { margin-left: auto; display: flex; gap: 8px; }
+    .iconBtn {
+      width: 40px;
+      height: 40px;
+      border-radius: 14px;
+      border: 1px solid var(--line);
+      background: var(--surface-strong);
+      box-shadow: var(--shadow-soft);
+      cursor: pointer;
+      font-size: 18px;
+    }
+    .navPills {
+      border-top: 1px solid var(--line);
+      padding: 8px 12px 10px;
+      display: flex;
+      gap: 8px;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+    }
+    .navPills a {
+      flex: 0 0 auto;
+      text-decoration: none;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: var(--surface);
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 700;
+      padding: 8px 12px;
+      min-height: 36px;
+      display: inline-flex;
+      align-items: center;
+    }
+    .navPills a.active {
+      color: var(--accent);
+      border-color: var(--line-strong);
+      background: linear-gradient(135deg, var(--accent-soft), rgba(180, 83, 9, 0.15));
+      box-shadow: var(--shadow-soft);
+    }
+
+    .container {
+      max-width: 1040px;
+      margin: 0 auto;
+      padding: 16px 12px 72px;
+    }
+    .hero {
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      background:
+        radial-gradient(1000px 320px at 12% 8%, rgba(88, 182, 234, 0.24), transparent 60%),
+        radial-gradient(700px 260px at 88% 20%, rgba(253, 186, 116, 0.24), transparent 60%),
+        linear-gradient(150deg, #1a3048, #0e2136 55%, #112940);
+      color: #f8fbff;
+      padding: 20px 16px 16px;
+      position: relative;
+    }
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(255, 255, 255, 0.07) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.07) 1px, transparent 1px);
+      background-size: 24px 24px;
+      opacity: 0.18;
+      pointer-events: none;
+    }
+    .hero > * { position: relative; }
+    .heroTag {
+      display: inline-flex;
+      align-items: center;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.38);
+      background: rgba(255, 255, 255, 0.12);
+      padding: 6px 12px;
+      font-size: 12px;
+      font-weight: 700;
+    }
+    .heroTitle {
+      margin: 10px 0 0;
+      font-family: "Shippori Mincho B1", "Yu Mincho", serif;
+      font-size: clamp(27px, 7vw, 42px);
+      line-height: 1.08;
+      letter-spacing: 0.02em;
+      text-shadow: 0 3px 16px rgba(0, 0, 0, 0.3);
+    }
+    .heroMeta {
+      margin: 8px 0 0;
+      font-size: 14px;
+      color: rgba(248, 251, 255, 0.9);
+      max-width: 68ch;
+    }
+    .criticalRow {
+      margin-top: 12px;
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .critical {
+      border-radius: 12px;
+      border: 1px solid rgba(248, 251, 255, 0.38);
+      background: rgba(248, 251, 255, 0.12);
+      font-size: 12px;
+      font-weight: 800;
+      padding: 6px 10px;
+    }
+    .critical.strong {
+      border-color: rgba(248, 251, 255, 0.8);
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.22), rgba(255, 208, 150, 0.2));
+      color: #fff;
+    }
+
+    .section { margin-top: 18px; }
+    .section h2 {
+      margin: 0;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: clamp(18px, 4.8vw, 24px);
+      font-family: "Shippori Mincho B1", "Yu Mincho", serif;
+      letter-spacing: 0.02em;
+    }
+    .section h2::before {
+      content: "";
+      width: 22px;
+      height: 2px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, var(--accent), var(--warn));
+    }
+    .card {
+      margin-top: 12px;
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      background: var(--surface);
+      box-shadow: var(--shadow-soft);
+      padding: 14px;
+      backdrop-filter: blur(8px);
+    }
+    .card h3 {
+      margin: 0 0 8px;
+      font-size: 16px;
+      line-height: 1.3;
+    }
+    .muted { color: var(--muted); }
+
+    .tools {
+      margin-top: 10px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .searchWrap {
+      flex: 1 1 240px;
+      min-width: 0;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: var(--surface-strong);
+      padding: 10px;
+    }
+    .searchWrap input {
+      width: 100%;
+      border: none;
+      background: transparent;
+      font: inherit;
+      color: var(--text);
+    }
+    .searchWrap input:focus { outline: none; }
+    .chips { display: flex; flex-wrap: wrap; gap: 8px; }
+    .chip {
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: var(--surface-strong);
+      color: var(--muted);
+      padding: 7px 10px;
+      font-size: 12px;
+      font-weight: 700;
+      cursor: pointer;
+      min-height: 34px;
+    }
+    .chip.active {
+      color: var(--accent);
+      border-color: var(--line-strong);
+      background: linear-gradient(135deg, var(--accent-soft), rgba(180, 83, 9, 0.12));
+    }
+
+    .dayShell {
+      margin-top: 12px;
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      background: var(--surface);
+      box-shadow: var(--shadow-soft);
+      overflow: hidden;
+    }
+    .dayBtn {
+      width: 100%;
+      border: none;
+      background: transparent;
+      color: inherit;
+      text-align: left;
+      padding: 14px;
+      display: flex;
+      gap: 10px;
+      cursor: pointer;
+    }
+    .dayBtnText { flex: 1; min-width: 0; }
+    .kicker { font-size: 12px; color: var(--muted); font-weight: 800; letter-spacing: 0.02em; }
+    .dayTitle { margin-top: 3px; font-size: clamp(17px, 4.7vw, 22px); font-weight: 900; line-height: 1.25; }
+    .dayMeta { margin-top: 6px; font-size: 13px; color: var(--muted); }
+    .chev {
+      width: 34px;
+      height: 34px;
+      border-radius: 12px;
+      border: 1px solid var(--line);
+      background: var(--surface-strong);
+      display: grid;
+      place-items: center;
+      transition: transform 0.2s ease;
+      flex: 0 0 auto;
+    }
+    .dayBtn[aria-expanded="true"] .chev { transform: rotate(180deg); }
+    .dayPanel {
+      border-top: 1px solid var(--line);
+      background: color-mix(in srgb, var(--surface) 84%, transparent);
+      padding: 12px;
+    }
+
+    .evtList {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      padding-left: 9px;
+    }
+    .evtList::before {
+      content: "";
+      position: absolute;
+      left: 26px;
+      top: 8px;
+      bottom: 8px;
+      width: 2px;
+      border-radius: 999px;
+      background: var(--line);
+    }
+    .evt {
+      --type-accent: var(--accent);
+      --type-border: color-mix(in srgb, var(--accent) 32%, transparent);
+      --type-tint: var(--accent-soft);
+      position: relative;
+      border: 1px solid var(--line);
+      border-left: 4px solid var(--type-border);
+      border-radius: 16px;
+      background: var(--surface-strong);
+      box-shadow: var(--shadow-soft);
+      padding: 10px 10px 10px 56px;
+    }
+    .evtIcon {
+      position: absolute;
+      left: 6px;
+      top: 10px;
+      width: 34px;
+      height: 34px;
+      border-radius: 12px;
+      border: 1px solid var(--type-border);
+      background: var(--type-tint);
+      display: grid;
+      place-items: center;
+      font-size: 17px;
+    }
+    .evtTop { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
+    .evtTime { font-size: 13px; font-weight: 900; letter-spacing: 0.02em; }
+    .pill {
+      font-size: 11px;
+      font-weight: 800;
+      padding: 4px 8px;
+      border-radius: 999px;
+      border: 1px solid var(--type-border);
+      background: var(--type-tint);
+      color: var(--type-accent);
+      line-height: 1;
+    }
+    .evtTitle { margin-top: 5px; font-weight: 900; font-size: 15px; line-height: 1.3; }
+    .evtMemo { margin: 6px 0 0; color: var(--muted); font-size: 13px; line-height: 1.55; }
+
+    .evt[data-cat="move"] { --type-accent: #0369a1; --type-tint: rgba(3, 105, 161, 0.15); --type-border: rgba(3, 105, 161, 0.32); }
+    .evt[data-cat="food"] { --type-accent: #c2410c; --type-tint: rgba(194, 65, 12, 0.16); --type-border: rgba(194, 65, 12, 0.33); }
+    .evt[data-cat="stay"] { --type-accent: #0f766e; --type-tint: rgba(15, 118, 110, 0.16); --type-border: rgba(15, 118, 110, 0.32); }
+    .evt[data-cat="sight"] { --type-accent: #15803d; --type-tint: rgba(21, 128, 61, 0.16); --type-border: rgba(21, 128, 61, 0.32); }
+    .evt[data-cat="walk"] { --type-accent: #0f766e; --type-tint: rgba(15, 118, 110, 0.16); --type-border: rgba(15, 118, 110, 0.32); }
+    .evt[data-cat="spa"] { --type-accent: #0e7490; --type-tint: rgba(14, 116, 144, 0.16); --type-border: rgba(14, 116, 144, 0.32); }
+    .evt[data-cat="break"] { --type-accent: #475569; --type-tint: rgba(71, 85, 105, 0.17); --type-border: rgba(71, 85, 105, 0.32); }
+    .evt[data-cat="other"] { --type-accent: #92400e; --type-tint: rgba(146, 64, 14, 0.16); --type-border: rgba(146, 64, 14, 0.32); }
+
+    .list { margin: 0; padding-left: 18px; display: grid; gap: 7px; }
+    .list li { font-size: 14px; }
+    .linkGrid { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 6px; }
+    .linkBtn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: var(--surface-strong);
+      text-decoration: none;
+      min-height: 38px;
+      padding: 8px 10px;
+      font-size: 13px;
+      font-weight: 700;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .factGrid { display: grid; gap: 12px; margin-top: 12px; }
+    .factCard {
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      background: var(--surface);
+      box-shadow: var(--shadow-soft);
+      padding: 12px;
+    }
+    .factCard h3 { margin: 0; font-size: 16px; }
+    .factMeta { margin-top: 6px; font-size: 12px; color: var(--muted); }
+    .factList { margin: 8px 0 0; padding-left: 18px; display: grid; gap: 5px; font-size: 13px; }
+    .src { margin-top: 8px; font-size: 12px; color: var(--muted); }
+    .src a { color: var(--accent); }
+
+    .alarm {
+      margin-top: 12px;
+      border-radius: 14px;
+      border: 1px solid color-mix(in srgb, var(--danger) 45%, transparent);
+      background: color-mix(in srgb, var(--danger) 10%, var(--surface-strong));
+      padding: 10px;
+      font-size: 13px;
+      font-weight: 700;
+      color: color-mix(in srgb, var(--danger) 72%, var(--text));
+    }
+
+    .checkList { display: grid; gap: 8px; margin-top: 10px; }
+    .checkItem {
+      display: flex;
+      gap: 8px;
+      align-items: flex-start;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: var(--surface-strong);
+      padding: 8px 10px;
+      font-size: 14px;
+    }
+
+    .footer {
+      margin-top: 16px;
+      text-align: center;
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    @media (min-width: 860px) {
+      .factGrid { grid-template-columns: 1fr 1fr; }
+    }
+
+    @media (max-width: 720px) {
+      .barInner { padding: 10px 10px; }
+      .container { padding: 12px 9px 72px; }
+      .hero { border-radius: 20px; }
+      .heroMeta { font-size: 13px; }
+      .navPills { padding: 8px 8px 10px; }
+      .dayPanel { padding: 10px; }
+      .evt { padding: 10px 9px 10px 53px; }
+      .evtIcon { width: 32px; height: 32px; font-size: 16px; }
+      .evtList::before { left: 23px; }
+    }
+
+    @media print {
+      .noPrint { display: none !important; }
+      html, body { background: #fff !important; }
+      .container { max-width: 100%; padding: 0; }
+      .hero, .card, .dayShell, .evt, .factCard {
+        box-shadow: none !important;
+        background: #fff !important;
+      }
+      .dayPanel[hidden] { display: block !important; }
+      .section { break-inside: avoid; }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar noPrint">
+    <div class="barInner">
+      <div class="seal" aria-hidden="true"></div>
+      <div class="brand">
+        <h1>城崎温泉・天橋立 家族しおり</h1>
+        <p>2026/3/7(土)-3/8(日) | 6人 | 車移動 | 松井山手20:00</p>
+      </div>
+      <div class="actions">
+        <button class="iconBtn" id="printBtn" type="button" aria-label="印刷">🖨️</button>
+        <button class="iconBtn" id="themeBtn" type="button" aria-label="テーマ切替">🌙</button>
+      </div>
+    </div>
+    <nav class="navPills" aria-label="ページ内ナビ">
+      <a href="#top">Top</a>
+      <a href="#overview">概要</a>
+      <a href="#day1">Day1</a>
+      <a href="#day2">Day2</a>
+      <a href="#facts">公式情報</a>
+      <a href="#links">リンク</a>
+      <a href="#todo">持ち物</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <section id="top" class="hero">
+      <div class="heroTag">配布版 / 当日運用向け</div>
+      <h2 class="heroTitle">城崎温泉・天橋立<br />1泊2日 旅程しおり</h2>
+      <p class="heroMeta">
+        Day2は「北（傘松）直行 → 南側で昼と散策 → 余裕でビューランド」。<br />
+        最重要は <strong>15:10 天橋立出発</strong> と <strong>20:00 松井山手到着</strong>。
+      </p>
+      <div class="criticalRow">
+        <span class="critical strong">⏱ 3/8 15:10 天橋立出発（遅くとも15:20）</span>
+        <span class="critical strong">🏠 3/8 20:00 松井山手で祖母送迎</span>
+        <span class="critical">🚫 観光船・バスは使わない（車のみ）</span>
+      </div>
+    </section>
+
+    <section class="section" id="overview">
+      <h2>概要</h2>
+      <article class="card">
+        <h3>確定条件</h3>
+        <ul class="list">
+          <li>3/7(土) 東大阪 8:00発 → 鴻池新田 8:20で祖母ピック。</li>
+          <li>宿はレイセニット城崎スイート（夕食付き、朝食なし、夕方チェックイン）。</li>
+          <li>1日目は玄武洞→城崎（昼）→外湯と散策→宿。</li>
+          <li>2日目は北（傘松）直行→南側散策→余裕でビューランド。</li>
+          <li>車移動のみ。観光船・バスは使わない。</li>
+        </ul>
+      </article>
+      <article class="card">
+        <h3>当日優先順位</h3>
+        <ul class="list">
+          <li><strong>最優先:</strong> 3/8(日) 15:10に天橋立エリア出発（遅くとも15:20）。</li>
+          <li><strong>次点:</strong> 祖母の体力。南半分散策は往路20分で必ず折返し（きつければ15分）。</li>
+          <li><strong>捨て順:</strong> ビューランド → 散策距離短縮 → 昼を軽食化。</li>
+          <li><strong>駐車探し:</strong> 1候補10分で見切り、次候補へ切替。</li>
+          <li><strong>飲酒:</strong> 1日目は温泉街で飲まない。飲酒は宿チェックイン後のみ。</li>
+        </ul>
+      </article>
+      <article class="card noPrint">
+        <h3>検索 / カテゴリフィルタ</h3>
+        <div class="tools">
+          <label class="searchWrap" for="q">
+            <span aria-hidden="true">🔎</span>
+            <input id="q" type="search" inputmode="search" placeholder="例: 玄武洞 / 外湯 / 駐車 / 15:10" />
+            <span id="hit" class="muted">-</span>
+          </label>
+          <div class="chips" id="chips">
+            <button class="chip" type="button" data-type="all">すべて</button>
+            <button class="chip" type="button" data-type="move">移動</button>
+            <button class="chip" type="button" data-type="food">食事</button>
+            <button class="chip" type="button" data-type="sight">観光</button>
+            <button class="chip" type="button" data-type="spa">温泉</button>
+            <button class="chip" type="button" data-type="walk">散策</button>
+            <button class="chip" type="button" data-type="break">休憩</button>
+            <button class="chip" type="button" data-type="stay">宿</button>
+            <button class="chip" type="button" data-type="other">その他</button>
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <section class="section" id="day1">
+      <h2>Day1（3/7 土）</h2>
+      <article class="dayShell">
+        <button class="dayBtn" type="button" data-acc="day1Panel" aria-expanded="true">
+          <div class="dayBtnText">
+            <div class="kicker">東大阪 → 玄武洞 → 城崎（昼・外湯・散策）→ 宿</div>
+            <div class="dayTitle">玄武洞を昼前に回収して、外湯は体力次第で2〜3湯</div>
+            <div class="dayMeta">外湯後に宿まで運転があるため、運転担当は宿到着まで飲酒しない</div>
+          </div>
+          <div class="chev" aria-hidden="true">⌄</div>
+        </button>
+        <div class="dayPanel" id="day1Panel">
+          <div class="evtList">
+            <article class="evt" data-cat="move" data-key="東大阪 出発">
+              <div class="evtIcon">🚗</div>
+              <div class="evtTop"><div class="evtTime">08:00</div><span class="pill">移動</span></div>
+              <div class="evtTitle">東大阪 自宅 発</div>
+              <p class="evtMemo">高速前に飲み物確保。運転交代は90分目安。</p>
+            </article>
+            <article class="evt" data-cat="other" data-key="鴻池新田 祖母ピック">
+              <div class="evtIcon">👵</div>
+              <div class="evtTop"><div class="evtTime">08:20</div><span class="pill">合流</span></div>
+              <div class="evtTitle">鴻池新田で祖母ピック</div>
+              <p class="evtMemo">合流後すぐ高速へ。</p>
+            </article>
+            <article class="evt" data-cat="break" data-key="休憩 SA">
+              <div class="evtIcon">☕</div>
+              <div class="evtTop"><div class="evtTime">09:40</div><span class="pill">休憩</span></div>
+              <div class="evtTitle">SA/PA休憩（15〜20分）</div>
+              <p class="evtMemo">祖母優先でトイレと脚伸ばし。</p>
+            </article>
+            <article class="evt" data-cat="move" data-key="玄武洞 直行">
+              <div class="evtIcon">🗺️</div>
+              <div class="evtTop"><div class="evtTime">11:20</div><span class="pill">移動</span></div>
+              <div class="evtTitle">城崎エリア着 → 玄武洞へ直行</div>
+              <p class="evtMemo">温泉街駐車を先にしない（時間ロス防止）。</p>
+            </article>
+            <article class="evt" data-cat="sight" data-key="玄武洞 見学">
+              <div class="evtIcon">🪨</div>
+              <div class="evtTop"><div class="evtTime">11:35-12:25</div><span class="pill">観光</span></div>
+              <div class="evtTitle">玄武洞 見学</div>
+              <p class="evtMemo">滞在50分想定。足元優先でゆっくり。</p>
+            </article>
+            <article class="evt" data-cat="move" data-key="城崎 温泉街 駐車">
+              <div class="evtIcon">🅿️</div>
+              <div class="evtTop"><div class="evtTime">12:40</div><span class="pill">移動</span></div>
+              <div class="evtTitle">城崎温泉街へ戻る → 駐車</div>
+              <p class="evtMemo">最大料金ありを優先。満車なら駅側に切替。</p>
+            </article>
+            <article class="evt" data-cat="food" data-key="昼 をり鶴 ますや">
+              <div class="evtIcon">🍜</div>
+              <div class="evtTop"><div class="evtTime">12:55-13:55</div><span class="pill">食事</span></div>
+              <div class="evtTitle">昼：をり鶴 or ますや（空いてる方）</div>
+              <p class="evtMemo">列が短い方に即決。待ちが長ければ次候補へ。</p>
+            </article>
+            <article class="evt" data-cat="spa" data-key="外湯 御所 鴻 まんだら">
+              <div class="evtIcon">♨️</div>
+              <div class="evtTop"><div class="evtTime">14:05-16:55</div><span class="pill">温泉</span><span class="pill">散策</span></div>
+              <div class="evtTitle">外湯3湯（御所→鴻→まんだら）+ 温泉街散策</div>
+              <p class="evtMemo">祖母が疲れたら2湯で終了。3湯目は即カット。</p>
+            </article>
+            <article class="evt" data-cat="move" data-key="宿へ移動">
+              <div class="evtIcon">🚐</div>
+              <div class="evtTop"><div class="evtTime">17:05</div><span class="pill">移動</span></div>
+              <div class="evtTitle">温泉街 発 → 宿へ移動</div>
+              <p class="evtMemo">この移動が終わるまで飲酒なし。</p>
+            </article>
+            <article class="evt" data-cat="stay" data-key="レイセニット チェックイン">
+              <div class="evtIcon">🏨</div>
+              <div class="evtTop"><div class="evtTime">17:20-17:40</div><span class="pill">宿</span></div>
+              <div class="evtTitle">レイセニット城崎スイート チェックイン</div>
+              <p class="evtMemo">宿到着後は運転終了、以降飲酒可。</p>
+            </article>
+            <article class="evt" data-cat="food" data-key="夕食 宿">
+              <div class="evtIcon">🍽️</div>
+              <div class="evtTop"><div class="evtTime">18:00〜</div><span class="pill">食事</span></div>
+              <div class="evtTitle">夕食（宿）→ 部屋でゆっくり</div>
+              <p class="evtMemo">翌日運転に備えて深酒は控えめ。</p>
+            </article>
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <section class="section" id="day2">
+      <h2>Day2（3/8 日）</h2>
+      <article class="dayShell">
+        <button class="dayBtn" type="button" data-acc="day2Panel" aria-expanded="true">
+          <div class="dayBtnText">
+            <div class="kicker">城崎 → 北（傘松）直行 → 南側散策 → 余裕でビューランド</div>
+            <div class="dayTitle">15:10出発を死守。遅れたらビューランドを最初に切る</div>
+            <div class="dayMeta"><strong style="color:var(--danger)">最重要: 15:10 天橋立エリア出発（遅くとも15:20）</strong></div>
+          </div>
+          <div class="chev" aria-hidden="true">⌄</div>
+        </button>
+        <div class="dayPanel" id="day2Panel">
+          <article class="card" style="margin-top:0">
+            <h3>朝食なし対策（時間ロス防止）</h3>
+            <ul class="list">
+              <li>推奨A: 前夜にコンビニで購入して朝は車内で食べる（最速）。</li>
+              <li>推奨B: 朝に最短コンビニ1回のみ寄る（10分上限）。</li>
+              <li>いずれも北側到着時刻を優先し、朝食で観光時間を削らない。</li>
+            </ul>
+            <div class="linkGrid">
+              <a class="linkBtn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=城崎温泉+コンビニ">🏪 城崎コンビニ検索</a>
+              <a class="linkBtn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=天橋立駅+コンビニ">🏪 天橋立駅周辺コンビニ</a>
+            </div>
+          </article>
+          <div class="evtList">
+            <article class="evt" data-cat="move" data-key="宿 出発">
+              <div class="evtIcon">🚗</div>
+              <div class="evtTop"><div class="evtTime">09:00</div><span class="pill">移動</span></div>
+              <div class="evtTitle">宿 発（城崎 → 北側へ直行）</div>
+              <p class="evtMemo">北側駐車を先に片付ける。</p>
+            </article>
+            <article class="evt" data-cat="other" data-key="傘松 ふもと 駐車">
+              <div class="evtIcon">🅿️</div>
+              <div class="evtTop"><div class="evtTime">10:30</div><span class="pill">駐車</span></div>
+              <div class="evtTitle">傘松ふもと着・駐車（10分で見切り）</div>
+              <p class="evtMemo">第1候補満車なら第2候補へ即移動。</p>
+            </article>
+            <article class="evt" data-cat="sight" data-key="傘松公園 昇龍観">
+              <div class="evtIcon">🏞️</div>
+              <div class="evtTop"><div class="evtTime">10:45-12:05</div><span class="pill">観光</span></div>
+              <div class="evtTitle">傘松公園（展望・写真）</div>
+              <p class="evtMemo">上限80分。下山時刻を先に確定。</p>
+            </article>
+            <article class="evt" data-cat="move" data-key="北から南へ移動">
+              <div class="evtIcon">🚙</div>
+              <div class="evtTop"><div class="evtTime">12:05-12:35</div><span class="pill">移動</span></div>
+              <div class="evtTitle">北側 → 南側（文珠）へ車移動</div>
+              <p class="evtMemo">順序固定: 昼 → 南半分散策 → 余裕でビューランド。</p>
+            </article>
+            <article class="evt" data-cat="food" data-key="昼 当日探索">
+              <div class="evtIcon">🍣</div>
+              <div class="evtTop"><div class="evtTime">12:35-13:20</div><span class="pill">食事</span></div>
+              <div class="evtTitle">昼（当日探索で即決）</div>
+              <p class="evtMemo">待ちが長い店は切る。回転優先。</p>
+            </article>
+            <article class="evt" data-cat="walk" data-key="南半分 往復散策">
+              <div class="evtIcon">🚶</div>
+              <div class="evtTop"><div class="evtTime">13:25-14:15</div><span class="pill">散策</span></div>
+              <div class="evtTitle">松並木 南半分のみ往復（主役）</div>
+              <p class="evtMemo">往路20分で折返し固定。祖母がきつければ15分で折返し。</p>
+            </article>
+            <article class="evt" data-cat="sight" data-key="ビューランド 余裕枠">
+              <div class="evtIcon">🎡</div>
+              <div class="evtTop"><div class="evtTime">14:20-14:50</div><span class="pill">観光</span></div>
+              <div class="evtTitle">ビューランド（余裕がある時のみ）</div>
+              <p class="evtMemo">押していたら即カット（捨て順1位）。</p>
+            </article>
+            <article class="evt" data-cat="move" data-key="15:10 出発固定">
+              <div class="evtIcon">⏱️</div>
+              <div class="evtTop"><div class="evtTime">15:10</div><span class="pill">移動</span></div>
+              <div class="evtTitle"><strong style="color:var(--danger)">天橋立エリア 出発（固定）</strong></div>
+              <p class="evtMemo">遅くとも15:20。遅延時はビューランド・散策距離・昼食時間の順で削る。</p>
+            </article>
+            <article class="evt" data-cat="break" data-key="帰路 休憩1">
+              <div class="evtIcon">☕</div>
+              <div class="evtTop"><div class="evtTime">16:30</div><span class="pill">休憩</span></div>
+              <div class="evtTitle">SA/PA休憩（15分）</div>
+              <p class="evtMemo">トイレと脚伸ばし。</p>
+            </article>
+            <article class="evt" data-cat="break" data-key="帰路 休憩2">
+              <div class="evtIcon">🧻</div>
+              <div class="evtTop"><div class="evtTime">18:10</div><span class="pill">休憩</span></div>
+              <div class="evtTitle">SA/PA休憩（15分）</div>
+              <p class="evtMemo">渋滞吸収。無理せず。</p>
+            </article>
+            <article class="evt" data-cat="other" data-key="20:00 松井山手">
+              <div class="evtIcon">🏠</div>
+              <div class="evtTop"><div class="evtTime">20:00</div><span class="pill">送迎</span></div>
+              <div class="evtTitle"><strong style="color:var(--danger)">松井山手 祖母自宅 着（固定）</strong></div>
+              <p class="evtMemo">降車後、東大阪へ帰宅。</p>
+            </article>
+          </div>
+        </div>
+      </article>
+      <div class="alarm">遅れた時の即断: ①ビューランド中止 → ②散策を15分折返しへ短縮 → ③昼を軽食化。15:10出発は絶対固定。</div>
+    </section>
+    <section class="section" id="facts">
+      <h2>公式情報（出典付き）</h2>
+      <div class="factGrid">
+        <article class="factCard">
+          <h3>玄武洞公園</h3>
+          <div class="factMeta">確認日: 2026-03-05</div>
+          <ul class="factList">
+            <li>開園 9:00-17:00（最終入園 16:30）。</li>
+            <li>休園: 12/29-1/3（年末年始）。</li>
+            <li>入園料: 大人500円 / 高校生300円 / 小中学生300円。</li>
+            <li>駐車: 玄武洞ミュージアム案内では無料駐車場（普通100台・バス5台）。</li>
+            <li>天候や落石対策で臨時閉園の可能性があるため当日朝に再確認。</li>
+          </ul>
+          <div class="src">
+            出典:
+            <a target="_blank" rel="noopener" href="https://genbudo-park.jp/">玄武洞公園 公式</a> /
+            <a target="_blank" rel="noopener" href="https://genbudo-museum.jp/user_data/access.php">玄武洞ミュージアム アクセス</a>
+          </div>
+        </article>
+
+        <article class="factCard">
+          <h3>城崎外湯（利用予定: 御所・鴻・まんだら）</h3>
+          <div class="factMeta">確認日: 2026-03-05</div>
+          <ul class="factList">
+            <li>外湯料金: 大人800円 / 子ども400円（共通）。</li>
+            <li>御所の湯: 7:00-23:00（木曜定休）。</li>
+            <li>鴻の湯: 7:00-23:00（火曜定休）。</li>
+            <li>まんだら湯: 15:00-23:00（水曜定休）。</li>
+            <li>最終受付目安: 観光協会の外湯案内で終了40分前運用の記載あり。</li>
+          </ul>
+          <div class="src">
+            出典:
+            <a target="_blank" rel="noopener" href="https://kinosaki-spa.gr.jp/onsen/kinosaki-externals/">城崎温泉観光協会（外湯）</a> /
+            <a target="_blank" rel="noopener" href="https://kinosaki-onsen.info/spa">城崎温泉観光案内（最終受付）</a>
+          </div>
+        </article>
+
+        <article class="factCard">
+          <h3>レイセニット城崎スイート</h3>
+          <div class="factMeta">確認日: 2026-03-05</div>
+          <ul class="factList">
+            <li>チェックイン 15:00 / チェックアウト 10:00。</li>
+            <li>駐車場: 屋外15台 + 地下15台（合計30台、予約優先）。</li>
+            <li>地下駐車場は高さ2.0mまで。</li>
+            <li>送迎: 城崎温泉駅から14:30-17:30（30分毎、到着時電話）。</li>
+          </ul>
+          <div class="src">
+            出典:
+            <a target="_blank" rel="noopener" href="https://www.reyzenit-kinosaki.jp/">レイセニット城崎 公式</a> /
+            <a target="_blank" rel="noopener" href="https://www.resorthotels109.jp/reyzenit/kinosaki/access/">公式アクセス案内</a>
+          </div>
+        </article>
+
+        <article class="factCard">
+          <h3>傘松公園（天橋立ケーブル・リフト）</h3>
+          <div class="factMeta">確認日: 2026-03-05</div>
+          <ul class="factList">
+            <li>3月（2/21-7/20）は運行 9:00-18:00。</li>
+            <li>料金: 往復 大人800円 / 小児400円（片道 大人400円 / 小児200円）。</li>
+            <li>雨天・強風・雷などで運休の可能性あり。</li>
+            <li>点検日運休があるため、前日夜に公式運行情報を確認。</li>
+          </ul>
+          <div class="src">
+            出典:
+            <a target="_blank" rel="noopener" href="https://www.amano-hashidate.com/cablecar/">天橋立ケーブルカー・リフト 公式</a>
+          </div>
+        </article>
+
+        <article class="factCard">
+          <h3>天橋立ビューランド</h3>
+          <div class="factMeta">確認日: 2026-03-05</div>
+          <ul class="factList">
+            <li>2/16-6/30の営業: 9:00-17:30（切符販売 17:00まで）。</li>
+            <li>入園料: 大人1,000円 / 小人500円。</li>
+            <li>モノレール・リフト最終上り 17:00、最終下り 17:20。</li>
+            <li>雨天・雷・強風時は営業時間中でも運休あり。</li>
+            <li>駐車: 直営17台（1日800円）。駅横市営駐車場案内あり。</li>
+          </ul>
+          <div class="src">
+            出典:
+            <a target="_blank" rel="noopener" href="https://www.viewland.jp/eigyou/">ビューランド営業案内</a> /
+            <a target="_blank" rel="noopener" href="https://www.viewland.jp/lift/">モノレール・リフト案内</a>
+          </div>
+        </article>
+
+        <article class="factCard">
+          <h3>駐車候補（第1/第2）と切替ルール</h3>
+          <div class="factMeta">確認日: 2026-03-05</div>
+          <ul class="factList">
+            <li><strong>北側（傘松）:</strong> 第1候補 よし乃や駐車場（12台・800円）→ 第2候補 駐車場2（18台・800円）。</li>
+            <li><strong>北側予備:</strong> 松井物産駐車場（150台・800円）。</li>
+            <li><strong>南側（文珠）:</strong> 第1候補 智恩寺駐車場（100台・700円）→ 第2候補 天橋立駐車場（224台・1000円）。</li>
+            <li>切替ルール: 1候補につき10分で見切る。満車なら即次候補へ。</li>
+          </ul>
+          <div class="src">
+            出典:
+            <a target="_blank" rel="noopener" href="https://www.amanohashidate.jp/parking/">天橋立 観光協会 駐車場情報</a>
+          </div>
+        </article>
+      </div>
+      <div class="alarm">営業時間・料金・運休は変動します。前日夜（3/6）と当日朝（3/7, 3/8）に公式リンクを必ず再確認してください。</div>
+    </section>
+    <section class="section" id="links">
+      <h2>当日リンク集</h2>
+      <article class="card">
+        <h3>Googleマップ（タップ用）</h3>
+        <div class="linkGrid">
+          <a class="linkBtn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=玄武洞公園">🪨 玄武洞公園</a>
+          <a class="linkBtn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=城崎温泉街+駐車場">♨️ 城崎温泉街駐車</a>
+          <a class="linkBtn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=レイセニット城崎スイート">🏨 レイセニット城崎</a>
+          <a class="linkBtn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=傘松公園+駐車場">🅿️ 傘松ふもと駐車</a>
+          <a class="linkBtn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=天橋立+文珠+駐車場">🅿️ 文珠側駐車</a>
+          <a class="linkBtn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=天橋立ビューランド">🎡 ビューランド</a>
+          <a class="linkBtn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=鴻池新田駅">🚉 鴻池新田</a>
+          <a class="linkBtn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=松井山手駅">🏠 松井山手</a>
+        </div>
+      </article>
+      <article class="card">
+        <h3>公式サイト（前日夜に再確認）</h3>
+        <div class="linkGrid">
+          <a class="linkBtn" target="_blank" rel="noopener" href="https://genbudo-park.jp/">玄武洞公園</a>
+          <a class="linkBtn" target="_blank" rel="noopener" href="https://kinosaki-spa.gr.jp/onsen/kinosaki-externals/">城崎外湯（観光協会）</a>
+          <a class="linkBtn" target="_blank" rel="noopener" href="https://www.reyzenit-kinosaki.jp/">レイセニット城崎</a>
+          <a class="linkBtn" target="_blank" rel="noopener" href="https://www.amano-hashidate.com/cablecar/">傘松ケーブル/リフト</a>
+          <a class="linkBtn" target="_blank" rel="noopener" href="https://www.viewland.jp/eigyou/">ビューランド営業案内</a>
+          <a class="linkBtn" target="_blank" rel="noopener" href="https://www.amanohashidate.jp/parking/">天橋立駐車場情報</a>
+        </div>
+      </article>
+      <article class="card">
+        <h3>緊急時リンク</h3>
+        <div class="linkGrid">
+          <a class="linkBtn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=天橋立+総合病院">🏥 近隣病院検索</a>
+          <a class="linkBtn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=天橋立+交番">🚓 最寄り交番検索</a>
+          <a class="linkBtn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=城崎温泉+総合病院">🏥 城崎側病院検索</a>
+        </div>
+      </article>
+    </section>
+
+    <section class="section" id="rules">
+      <h2>当日意思決定ルール</h2>
+      <article class="card">
+        <h3>2日目の固定フロー</h3>
+        <ul class="list">
+          <li>北（傘松）直行 → 南側で昼 → 南半分散策 → 余裕でビューランド → <strong>15:10出発</strong>。</li>
+          <li>駐車探しは1候補10分で見切る。長居しない。</li>
+          <li>折返しは往路20分固定。祖母がきつければ15分で折返し。</li>
+          <li>15:10を超えそうなら、ビューランドを最初にカット。</li>
+        </ul>
+      </article>
+      <article class="card">
+        <h3>昼食（天橋立近く）は当日探索で即断</h3>
+        <ol class="list">
+          <li>Googleマップで「天橋立 ランチ」を検索。</li>
+          <li>営業中 + 待ち時間短い店を優先（価格は中価格帯まで）。</li>
+          <li>5分以上迷ったら、評価3.8以上・待ち短い店に即決。</li>
+          <li>並びが長い場合は次候補へ。昼が押したら軽食化して散策時間を確保。</li>
+        </ol>
+        <div class="linkGrid">
+          <a class="linkBtn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=天橋立+ランチ">🍱 天橋立ランチ検索</a>
+          <a class="linkBtn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=天橋立+そば">🥢 そば系候補</a>
+          <a class="linkBtn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=天橋立+定食">🍚 定食系候補</a>
+        </div>
+        <p class="muted" style="margin:8px 0 0;font-size:12px">店舗営業・臨休は当日変動があるため、固定店名ではなく現地探索前提で運用。</p>
+      </article>
+    </section>
+
+    <section class="section" id="todo">
+      <h2>持ち物チェック（保存されます）</h2>
+      <article class="card">
+        <div class="checkList" id="checkList">
+          <label class="checkItem"><input type="checkbox" data-check="towel" /> 外湯タオル / 替え下着 / 濡れ物袋</label>
+          <label class="checkItem"><input type="checkbox" data-check="charger" /> 車用充電器 / モバイルバッテリー</label>
+          <label class="checkItem"><input type="checkbox" data-check="medicine" /> 酔い止め / 常備薬 / 絆創膏</label>
+          <label class="checkItem"><input type="checkbox" data-check="cash" /> 現金（駐車場・小銭）</label>
+          <label class="checkItem"><input type="checkbox" data-check="shoes" /> 祖母用の歩きやすい靴 / 休憩おやつ</label>
+          <label class="checkItem"><input type="checkbox" data-check="drink" /> 飲み物・朝食（前夜コンビニ分）</label>
+        </div>
+      </article>
+    </section>
+
+    <p class="footer">確認日: 2026-03-05（営業時間・料金は変動するため前日夜に公式リンクを再確認）</p>
+  </main>
+
+  <script>
+    (() => {
+      const root = document.documentElement;
+      const themeBtn = document.getElementById("themeBtn");
+      const printBtn = document.getElementById("printBtn");
+      const navLinks = Array.from(document.querySelectorAll(".navPills a"));
+      const q = document.getElementById("q");
+      const chips = document.getElementById("chips");
+      const hit = document.getElementById("hit");
+      const events = Array.from(document.querySelectorAll(".evt"));
+      const checks = Array.from(document.querySelectorAll("[data-check]"));
+
+      function systemTheme() {
+        return window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+      }
+      function activeTheme() {
+        return root.getAttribute("data-theme") || systemTheme();
+      }
+      function setTheme(next) {
+        root.setAttribute("data-theme", next);
+        localStorage.setItem("shiori_theme", next);
+        if (themeBtn) themeBtn.textContent = next === "dark" ? "☀️" : "🌙";
+      }
+
+      const saved = localStorage.getItem("shiori_theme");
+      if (saved === "dark" || saved === "light") setTheme(saved);
+      else if (themeBtn) themeBtn.textContent = activeTheme() === "dark" ? "☀️" : "🌙";
+
+      themeBtn?.addEventListener("click", () => setTheme(activeTheme() === "dark" ? "light" : "dark"));
+      printBtn?.addEventListener("click", () => window.print());
+
+      document.querySelectorAll("[data-acc]").forEach((btn) => {
+        btn.addEventListener("click", () => {
+          const panel = document.getElementById(btn.getAttribute("data-acc"));
+          const expanded = btn.getAttribute("aria-expanded") === "true";
+          btn.setAttribute("aria-expanded", expanded ? "false" : "true");
+          panel.hidden = expanded;
+        });
+      });
+
+      let currentType = "all";
+      function applyFilter() {
+        const needle = (q?.value || "").trim().toLowerCase();
+        let shown = 0;
+        events.forEach((evt) => {
+          const cat = evt.getAttribute("data-cat") || "";
+          const key = (evt.getAttribute("data-key") || "").toLowerCase();
+          const txt = (evt.innerText || "").toLowerCase();
+          const typeOK = currentType === "all" || cat === currentType;
+          const textOK = !needle || key.includes(needle) || txt.includes(needle);
+          const ok = typeOK && textOK;
+          evt.style.display = ok ? "" : "none";
+          if (ok) shown += 1;
+        });
+        if (hit) hit.textContent = shown + "件";
+      }
+      function setChip(type) {
+        currentType = type;
+        Array.from(chips?.querySelectorAll("[data-type]") || []).forEach((el) => {
+          const active = el.getAttribute("data-type") === type;
+          el.classList.toggle("active", active);
+          el.setAttribute("aria-pressed", active ? "true" : "false");
+        });
+        applyFilter();
+      }
+      chips?.addEventListener("click", (e) => {
+        const btn = e.target.closest("[data-type]");
+        if (!btn) return;
+        setChip(btn.getAttribute("data-type"));
+      });
+      q?.addEventListener("input", applyFilter);
+      setChip("all");
+
+      checks.forEach((box) => {
+        const key = "shiori_check_" + box.getAttribute("data-check");
+        box.checked = localStorage.getItem(key) === "1";
+        box.addEventListener("change", () => localStorage.setItem(key, box.checked ? "1" : "0"));
+      });
+
+      function updateNav() {
+        const y = window.scrollY || 0;
+        let current = null;
+        navLinks.forEach((a) => {
+          const target = document.querySelector(a.getAttribute("href"));
+          if (!target) return;
+          const top = target.getBoundingClientRect().top + window.scrollY;
+          if (y + 130 >= top) current = target;
+        });
+        navLinks.forEach((a) => {
+          const targetId = a.getAttribute("href").slice(1);
+          a.classList.toggle("active", current && current.id === targetId);
+        });
+      }
+      window.addEventListener("scroll", updateNav, { passive: true });
+      updateNav();
+    })();
+  </script>
+</body>
+</html>
